@@ -31,8 +31,15 @@ const main = async (canvas: HTMLCanvasElement) => {
   const fileName = glbModel.split('/').slice(-1)[0];
 
   BABYLON.SceneLoader.AppendAsync(rootFolder, fileName, scene)
-    .then(() => {
+    .then((results) => {
       console.log('model loaded');
+      var root = results.meshes[0];
+      root.name = '__xyz3__';
+      root.id = '__xyz3__';
+      root.rotation.y = Math.PI; // we're backwards in import
+
+      //root.position = new BABYLON.Vector3(0, 250, 0);
+      root.position.addInPlaceFromFloats(0, 1.6, 0);
     })
     .catch(console.error);
 
