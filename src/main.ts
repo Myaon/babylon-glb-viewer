@@ -8,7 +8,7 @@ import './style.scss';
 
 const renderCanvas = <HTMLCanvasElement>document.getElementById('renderCanvas');
 
-const main = (canvas: HTMLCanvasElement) => {
+const main = async (canvas: HTMLCanvasElement) => {
   const engine = new BABYLON.Engine(canvas, true);
   const scene = new BABYLON.Scene(engine);
 
@@ -35,6 +35,12 @@ const main = (canvas: HTMLCanvasElement) => {
       console.log('model loaded');
     })
     .catch(console.error);
+
+  await scene.createDefaultXRExperienceAsync({
+    uiOptions: {
+      sessionMode: 'immersive-ar',
+    },
+  });
 
   engine.runRenderLoop(() => {
     scene.render();
