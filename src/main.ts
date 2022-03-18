@@ -38,8 +38,8 @@ const main = async (canvas: HTMLCanvasElement) => {
       root.id = '__xyz3__';
       root.rotation.y = Math.PI; // we're backwards in import
 
-      //root.position = new BABYLON.Vector3(0, 250, 0);
-      root.position.addInPlaceFromFloats(0, 1.6, 0);
+      root.position = new BABYLON.Vector3(0, 250, 0);
+      //root.position.addInPlaceFromFloats(0, 1.6, 0);
     })
     .catch(console.error);
 
