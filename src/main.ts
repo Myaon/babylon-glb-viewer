@@ -2,7 +2,7 @@ import * as BABYLON from '@babylonjs/core';
 import '@babylonjs/loaders/glTF';
 
 // eslint-disable-next-line import/no-unresolved
-import glbModel from '../models/boombox.glb?url';
+import glbModel from '../models/plane_anim.glb?url';
 
 import './style.scss';
 
@@ -30,6 +30,10 @@ const main = async (canvas: HTMLCanvasElement) => {
   const rootFolder = glbModel.split('/').slice(0, -1).join('/').concat('/');
   const fileName = glbModel.split('/').slice(-1)[0];
 
+  const boxSize = 0.2;
+  const box = BABYLON.MeshBuilder.CreateBox('box', { size: boxSize });
+  box.position.addInPlaceFromFloats(0, 1.6, 0);
+
   BABYLON.SceneLoader.AppendAsync(rootFolder, fileName, scene)
     .then((results) => {
       console.log('model loaded');
@@ -40,6 +44,9 @@ const main = async (canvas: HTMLCanvasElement) => {
 
       root.position = new BABYLON.Vector3(0, 250, 0);
       //root.position.addInPlaceFromFloats(0, 1.6, 0);
+      const boxSize = 0.2;
+      const box = BABYLON.MeshBuilder.CreateBox('box', { size: boxSize });
+      box.position.addInPlaceFromFloats(0, 1.6, 0);
     })
     .catch(console.error);
 
