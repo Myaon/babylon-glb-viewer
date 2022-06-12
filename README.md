@@ -25,7 +25,3 @@ yarn dev
 # build
 yarn build
 ```
-
-## Contact
-
-何かございましたら[にー兄さんの Twitter](https://twitter.com/ninisan_drumath)までご連絡ください。
